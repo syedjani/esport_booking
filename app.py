@@ -38,27 +38,7 @@ def add_booking_to_excel(name, game, date, time_slot, phone):
 
 
 
-def send_whatsapp_message(to_number, name, game, date, time_slot):
-    account_sid = "YOUR_TWILIO_SID"
-    auth_token = "YOUR_TWILIO_AUTH_TOKEN"
-    client = Client(account_sid, auth_token)
 
-    message_text = f"""
-Hello {name}! 🎮
-
-Your slot is confirmed for:
-Game: {game}
-Date: {date}
-Time: {time_slot}
-
-Thank you for booking!
-"""
-
-    client.messages.create(
-        from_='whatsapp:+918328648371',   # Twilio WhatsApp sandbox number
-        body=message_text,
-        to=f'whatsapp:+91{to_number}'    # user's WhatsApp number
-    )
 
 
 @app.route("/", methods=["GET"])
@@ -90,3 +70,4 @@ def book():
 if __name__ == "__main__":
     init_excel()
     app.run(debug=True)
+
