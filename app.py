@@ -7,7 +7,8 @@ from datetime import datetime
 app = Flask(__name__)
 app.secret_key = "some_secret_key"  # needed for flash messages
 
-EXCEL_FILE = "booking.xlsx"
+EXCEL_FILE = "/tmp/bookings.xlsx"
+
 SHEET_NAME = "Bookings"
 
 
@@ -70,4 +71,5 @@ def book():
 if __name__ == "__main__":
     init_excel()
     app.run(debug=True)
+
 
